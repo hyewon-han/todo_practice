@@ -8,7 +8,7 @@ function App() {
     {
       id,
       title: "test1",
-      contents: "title contents",
+      contents: "todo contents",
       isDone: false,
     },
   ];
