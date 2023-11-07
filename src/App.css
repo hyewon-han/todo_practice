@@ -4,3 +4,8 @@
   height: 150px;
   list-style: none;
 }
+
+.todo-list {
+  display: flex;
+  gap: 15px;
+}

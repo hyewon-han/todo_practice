@@ -1,17 +1,13 @@
 import "./App.css";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
+  const id = uuidv4();
   const initialState = [
     {
-      id: 1,
+      id,
       title: "test1",
-      contents: "title contents",
-      isDone: false,
-    },
-    {
-      id: 2,
-      title: "test2!!",
       contents: "title contents",
       isDone: false,
     },
@@ -21,7 +17,7 @@ function App() {
   const [todos, setTodos] = useState(initialState);
   const submitTodo = (e) => {
     e.preventDefault();
-    const todoObj = { id: todos.length + 1, title, contents, isDone: false };
+    const todoObj = { id, title, contents, isDone: false };
     setTodos([...todos, todoObj]);
     setTitle("");
     setContents("");
@@ -41,7 +37,7 @@ function App() {
     <div>
       <header>ToDoList</header>
       <main>
-        <form>
+        <form onSubmit={submitTodo}>
           <input
             value={title}
             onChange={(e) => {
@@ -60,10 +56,10 @@ function App() {
             placeholder="Write your todo content"
             required
           ></input>
-          <button onClick={submitTodo}>추가</button>
+          <button>추가</button>
         </form>
         <h1>Working..!🔥</h1>
-        <ul>
+        <ul className="todo-list">
           {todos
             .filter((todo) => todo.isDone === false)
             .map((todo, idx) => {
@@ -78,7 +74,7 @@ function App() {
             })}
         </ul>
         <h1>Done..!🎉</h1>
-        <ul>
+        <ul className="todo-list">
           {todos
             .filter((todo) => todo.isDone === true)
             .map((todo, idx) => {
