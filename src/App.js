@@ -62,31 +62,27 @@ function App() {
         <ul className="todo-list">
           {todos
             .filter((todo) => todo.isDone === false)
-            .map((todo) => {
-              return (
-                <li key={todo.id} className="todo">
-                  <h2>{todo.title}</h2>
-                  <p>{todo.contents}</p>
-                  <button onClick={() => deleteTodo(todo.id)}>삭제</button>
-                  <button onClick={() => isDoneTodo(todo.id)}>완료</button>
-                </li>
-              );
-            })}
+            .map((todo) => (
+              <li key={todo.id} className="todo">
+                <h2>{todo.title}</h2>
+                <p>{todo.contents}</p>
+                <button onClick={() => deleteTodo(todo.id)}>삭제</button>
+                <button onClick={() => isDoneTodo(todo.id)}>완료</button>
+              </li>
+            ))}
         </ul>
         <h1>Done..!🎉</h1>
         <ul className="todo-list">
           {todos
             .filter((todo) => todo.isDone === true)
-            .map((todo) => {
-              return (
-                <li key={todo.id} className="todo">
-                  <h2>{todo.title}</h2>
-                  <p>{todo.contents}</p>
-                  <button onClick={() => deleteTodo(todo.id)}>삭제</button>
-                  <button onClick={() => isNotDoneTodo(todo.id)}>취소</button>
-                </li>
-              );
-            })}
+            .map((todo) => (
+              <li key={todo.id} className="todo">
+                <h2>{todo.title}</h2>
+                <p>{todo.contents}</p>
+                <button onClick={() => deleteTodo(todo.id)}>삭제</button>
+                <button onClick={() => isNotDoneTodo(todo.id)}>취소</button>
+              </li>
+            ))}
         </ul>
       </main>
       <footer> Hyewon's To Do List &copy; All right reserved</footer>
