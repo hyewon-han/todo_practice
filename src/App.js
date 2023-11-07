@@ -62,9 +62,9 @@ function App() {
         <ul className="todo-list">
           {todos
             .filter((todo) => todo.isDone === false)
-            .map((todo, idx) => {
+            .map((todo) => {
               return (
-                <li key={idx} className="todo">
+                <li key={todo.id} className="todo">
                   <h2>{todo.title}</h2>
                   <p>{todo.contents}</p>
                   <button onClick={() => deleteTodo(todo.id)}>삭제</button>
@@ -77,9 +77,9 @@ function App() {
         <ul className="todo-list">
           {todos
             .filter((todo) => todo.isDone === true)
-            .map((todo, idx) => {
+            .map((todo) => {
               return (
-                <li key={idx} className="todo">
+                <li key={todo.id} className="todo">
                   <h2>{todo.title}</h2>
                   <p>{todo.contents}</p>
                   <button onClick={() => deleteTodo(todo.id)}>삭제</button>
